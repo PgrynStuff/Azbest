@@ -23,3 +23,7 @@ folder_colors={
 "res://scenes/": "orange",
 "res://scripts/": "red"
 }
+
+[physics]
+
+3d/physics_engine="Jolt Physics"

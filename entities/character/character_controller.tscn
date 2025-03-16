@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d788t7cr8l45"]
+
+[ext_resource type="Script" uid="uid://be2xc28pwls1p" path="res://scripts/character/character_controller.gd" id="1_bn032"]
+[ext_resource type="Script" uid="uid://chy6p22xpiv3d" path="res://scripts/state_machine/state_machine.gd" id="2_5rbde"]
+[ext_resource type="Script" uid="uid://dkngrs3necfu" path="res://scripts/character/character_component.gd" id="3_jqtp5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bn032"]
+radius = 0.4
+
+[node name="Character" type="RigidBody3D" node_paths=PackedStringArray("character_component")]
+script = ExtResource("1_bn032")
+character_component = NodePath("CharacterComponent")
+metadata/_custom_type_script = "uid://be2xc28pwls1p"
+
+[node name="CharacterComponent" type="Node" parent="."]
+script = ExtResource("3_jqtp5")
+metadata/_custom_type_script = "uid://dkngrs3necfu"
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_5rbde")
+metadata/_custom_type_script = "uid://chy6p22xpiv3d"
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_bn032")
