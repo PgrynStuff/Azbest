@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6fy5c7p2wddb"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_p34d1"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p34d1"]
+radius = 0.4
+
+[node name="Character" type="CharacterBody3D"]
+
+[node name="Synchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_p34d1")
+visibility_update_mode = 1
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_p34d1")
