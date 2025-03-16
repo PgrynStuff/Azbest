@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Azbest"
+run/main_scene="uid://36aybelayhsi"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [file_customization]
 

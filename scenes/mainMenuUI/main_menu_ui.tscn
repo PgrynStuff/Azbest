@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://36aybelayhsi"]
+
+[ext_resource type="Theme" uid="uid://bxeo072ilhtr4" path="res://scenes/mainMenuUI/themes/MainMenuButtonTheme.tres" id="1_fis34"]
+[ext_resource type="Script" uid="uid://yx3jheqmr44m" path="res://scripts/mainMenu/main_menu_ui.gd" id="1_r0wqf"]
+
+[node name="MainMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_r0wqf")
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(0, 630)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 128
+text = "Azbest"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_fis34")
+text = "LOCAL"
+
+[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_fis34")
+text = "SERVER"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_fis34")
+text = "QUIT"
+
+[node name="AuthorsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Autorzy: marcinjjjjj, Pgryn"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
