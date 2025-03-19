@@ -1,4 +1,11 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bxeo072ilhtr4"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bxeo072ilhtr4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tna6y"]
+bg_color = Color(0.415695, 0.037279, 0.455174, 0.784314)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6au4"]
 bg_color = Color(0.733333, 0.490196, 0.815686, 0.784314)
@@ -35,6 +42,7 @@ corner_radius_bottom_left = 20
 
 [resource]
 Button/font_sizes/font_size = 48
+Button/styles/disabled = SubResource("StyleBoxFlat_tna6y")
 Button/styles/focus = SubResource("StyleBoxFlat_w6au4")
 Button/styles/hover = SubResource("StyleBoxFlat_33i1x")
 Button/styles/normal = SubResource("StyleBoxFlat_0o3lk")

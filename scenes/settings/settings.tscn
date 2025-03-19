@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3eqqyciwlful"]
+
+[ext_resource type="Script" uid="uid://bh06r8ew6x3tk" path="res://scripts/settings/settings.gd" id="1_26ncd"]
+[ext_resource type="Theme" uid="uid://bxeo072ilhtr4" path="res://scenes/mainMenuUI/themes/MainMenuButtonTheme.tres" id="2_vu5fi"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_26ncd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.301961, 0.301961, 0.301961, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "USTAWIENIA"
+
+[node name="WindowModeHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="WModeLabel" type="Label" parent="VBoxContainer/WindowModeHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "TRYB OKNA"
+
+[node name="WModeOption" type="OptionButton" parent="VBoxContainer/WindowModeHBox"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../SaveAndExit")
+focus_neighbor_bottom = NodePath("../../ResolutionHBox/ResOption")
+theme = ExtResource("2_vu5fi")
+theme_override_font_sizes/font_size = 32
+alignment = 1
+
+[node name="ResolutionHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ResLabel" type="Label" parent="VBoxContainer/ResolutionHBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "ROZMIAR OKNA"
+
+[node name="ResOption" type="OptionButton" parent="VBoxContainer/ResolutionHBox"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../WindowModeHBox/WModeOption")
+focus_neighbor_bottom = NodePath("../../SaveAndExit")
+theme = ExtResource("2_vu5fi")
+theme_override_font_sizes/font_size = 32
+alignment = 1
+
+[node name="SaveAndExit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../ResolutionHBox/ResOption")
+focus_neighbor_bottom = NodePath("../WindowModeHBox/WModeOption")
+theme = ExtResource("2_vu5fi")
+theme_override_font_sizes/font_size = 32
+text = "ZAPISZ I WYJDŹ"
+
+[connection signal="pressed" from="VBoxContainer/SaveAndExit" to="." method="_on_save_and_exit_pressed"]

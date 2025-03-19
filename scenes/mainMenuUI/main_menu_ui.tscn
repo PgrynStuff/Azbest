@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://36aybelayhsi"]
+[gd_scene load_steps=4 format=3 uid="uid://36aybelayhsi"]
 
 [ext_resource type="Theme" uid="uid://bxeo072ilhtr4" path="res://scenes/mainMenuUI/themes/MainMenuButtonTheme.tres" id="1_fis34"]
 [ext_resource type="Script" uid="uid://yx3jheqmr44m" path="res://scripts/mainMenu/main_menu_ui.gd" id="1_r0wqf"]
+[ext_resource type="PackedScene" uid="uid://c3eqqyciwlful" path="res://scenes/settings/settings.tscn" id="3_tcsoq"]
 
 [node name="MainMenuUI" type="Control"]
 layout_mode = 3
@@ -24,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(0, 630)
+custom_minimum_size = Vector2(0, 700)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -40,26 +41,41 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="Local" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Server")
 theme = ExtResource("1_fis34")
-text = "LOCAL"
+text = "LOCALNA"
 
-[node name="Button2" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+[node name="Server" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Local")
+focus_neighbor_bottom = NodePath("../Settings")
 theme = ExtResource("1_fis34")
-text = "SERVER"
+text = "SERWER"
+
+[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Server")
+focus_neighbor_bottom = NodePath("../Quit")
+theme = ExtResource("1_fis34")
+text = "USTAWIENIA"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Local")
 theme = ExtResource("1_fis34")
-text = "QUIT"
+text = "WYJDŹ"
 
 [node name="AuthorsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -67,4 +83,9 @@ size_flags_vertical = 8
 text = "Autorzy: marcinjjjjj, Pgryn"
 horizontal_alignment = 1
 
+[node name="Settings" parent="." instance=ExtResource("3_tcsoq")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
